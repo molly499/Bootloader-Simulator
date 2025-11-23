@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #0b1020;
+    color: #f5f5f5;
+}
+
+#app {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+header h1 {
+    margin-bottom: 4px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+    gap: 16px;
+}
+
+.stage-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding: 12px 4px;
+}
+
+.stage-box {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    text-align: center;
+    font-size: 0.9rem;
+    background: #1b2335;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.stage-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+}
+
+.stage-img {
+    width: 40px;      /* Adjust size */
+    height: 40px;
+    margin-bottom: 4px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.stage-box.active .stage-img {
+    opacity: 1;
+    transform: scale(1.15);        /* Slight zoom on active */
+}
+
+
+.stage-box.active {
+    border-color: #4ade80;
+    box-shadow: 0 0 15px rgba(74, 222, 128, 0.7);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.system-diagram {
+    display: flex;
+    gap: 16px;
+}
+
+.memory, .disk {
+    flex: 1;
+    background: #151a2c;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+.memory-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mem-block {
+    padding: 6px;
+    border-radius: 6px;
+    background: #1f2937;
+    font-size: 0.8rem;
+    border: 1px solid #374151;
+    opacity: 0.4;
+}
+
+.mem-block.active {
+    border-color: #60a5fa;
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.7);
+    opacity: 1;
+}
+
+.disk-sectors {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sector {
+    padding: 6px;
+    border-radius: 6px;
+    background: #1f2937;
+    font-size: 0.8rem;
+    border: 1px solid #374151;
+    opacity: 0.4;
+}
+
+.sector.active {
+    border-color: #f97316;
+    box-shadow: 0 0 10px rgba(249, 115, 22, 0.7);
+    opacity: 1;
+}
+
+#info-panel {
+    background: #111827;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #374151;
+}
+
+#controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+button {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    background: #2563eb;
+    color: #fff;
+    font-size: 0.85rem;
+}
+
+button:disabled {
+    background: #4b5563;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    filter: brightness(1.1);
+}
+
+footer {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #9ca3af;
+}
+
+/* Small screens */
+@media (max-width: 800px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+}

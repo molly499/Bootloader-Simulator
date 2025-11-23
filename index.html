@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Boot Process Visual Simulator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Boot Process Visual Simulator</h1>
+            <p>Power On → BIOS → MBR → Bootloader → Kernel → OS</p>
+        </header>
+
+        <main>
+            <section id="diagram">
+                <!-- Left side: visual blocks -->
+                <div class="stage-row">
+                    <div class="stage-box" data-id="power">
+                        <img src="images/power.png" class="stage-img" />
+                        <span>Power On</span>
+                    </div>
+                    <div class="stage-box" data-id="bios">
+                        <img src="images/bios.png" class="stage-img" />
+                        <span>BIOS / UEFI</span>
+                    </div>
+                    <div class="stage-box" data-id="mbr">
+                        <img src="images/mbr.png" class="stage-img" />
+                        <span>MBR</span>
+                    </div>
+                    <div class="stage-box" data-id="bootloader">
+                        <img src="images/bootloader.png" class="stage-img" />
+                        <span>Bootloader</span>
+                    </div>
+                    <div class="stage-box" data-id="kernel">
+                        <img src="images/kernel.png" class="stage-img" />
+                        <span>Kernel</span>
+                    </div>
+                    <div class="stage-box" data-id="os">
+                        <img src="images/os.png" class="stage-img" />
+                        <span>OS Running</span>
+                    </div>
+                </div>
+
+                <!-- Memory + Disk diagram -->
+                <div class="system-diagram">
+                    <div class="memory">
+                        <h3>Memory (RAM)</h3>
+                        <div class="memory-blocks">
+                            <div class="mem-block" id="mem-bios">BIOS</div>
+                            <div class="mem-block" id="mem-bootloader">Bootloader</div>
+                            <div class="mem-block" id="mem-kernel">Kernel</div>
+                            <div class="mem-block" id="mem-os">User Space</div>
+                        </div>
+                    </div>
+
+                    <div class="disk">
+                        <h3>Disk</h3>
+                        <div class="disk-sectors">
+                            <div class="sector" id="sector-mbr">MBR (Sector 0)</div>
+                            <div class="sector">Kernel sectors</div>
+                            <div class="sector">User data</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right side: description + controls -->
+            <section id="info-panel">
+                <h2 id="stage-title">Click "Start Boot"</h2>
+                <p id="stage-description">
+                    This simulator will show what happens from power on to OS load.
+                </p>
+
+                <div id="controls">
+                    <button id="btn-start">Start Boot</button>
+                    <button id="btn-prev" disabled>Previous</button>
+                    <button id="btn-next" disabled>Next</button>
+                    <button id="btn-auto" disabled>Auto Play</button>
+                </div>
+
+                <div id="extra-info">
+                    <h3>What is shown in the diagram?</h3>
+                    <ul>
+                        <li>Top row: main boot stages.</li>
+                        <li>Left: how RAM is used during that stage.</li>
+                        <li>Right: which disk area is being accessed.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Created for Operating Systems Bootloader Assignment</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
