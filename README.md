@@ -6,7 +6,7 @@ An interactive browser-based simulator that visualizes the full OS boot sequence
 
 ## **🔗 Live Demo**
 
-https://molly499.github.io/Bootloader-Simulator/
+https://molly499.github.io/bootloader-simulator/
 
 ---
 
